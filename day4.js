@@ -37,6 +37,7 @@ console.log(add(2, 7));
 
 //상수나 변수에 함수 대입 (함수도 값)
 const subt = function (x, y) {
+  //익명 함수
   return x - y;
 };
 
@@ -51,15 +52,15 @@ console.log(mult(2, 7));
 
 // 두 줄 이상의 작업이 있을 시 {중괄호+return}
 const mult2 = (x, y) => {
-    console.log(`${x}와 ${y}를 곱합니다.`); //백틱으로 묶기
-    console.log(`결과는 ${x * y}입니다.`); //백틱으로 묶기
-    return x * y;
-  };
-  
-  console.log(mult2(2, 7));
+  console.log(`${x}와 ${y}를 곱합니다.`); //백틱으로 묶기
+  console.log(`결과는 ${x * y}입니다.`); //백틱으로 묶기
+  return x * y;
+};
 
-  // 인자가 하나일 때는 (괄호) 없이 선언 가능
-const pow = x => x ** 2;
+console.log(mult2(2, 7));
+
+// 인자가 하나일 때는 (괄호) 없이 선언 가능
+const pow = (x) => x ** 2;
 console.log(pow(3));
 
 //중요 화살표함수,변수나 상수에 함수를 대입한 것은 호이스팅이 안됨!!!
