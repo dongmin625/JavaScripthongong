@@ -15,14 +15,14 @@ console.log(
 
 const obj = {
   1: "하나", // 숫자도 객체의 키로는 사용 가능
-  "ab-cd": "ABCD", // 문자 포함 시 키도 따옴표로 감싸야 함
-  "s p a c e": "Space",
+  "ab-cd": "ABCD", // 특수문자,공백 포함 시 키도 따옴표로 감싸야 함
+  "s p a c e": "Space", // 특수문자,공백 포함 시 키도 따옴표로 감싸야 함
 };
 
-// 대괄호 프로퍼티 접근 연산자로만 가능
+// 위 경우 대괄호 프로퍼티 접근 연산자로만 가능
 console.log(obj[1], obj["ab-cd"], obj["s p a c e"]);
 
-// ⚠️ 오류 발생
+// ⚠️ 위 경우 오류 발생
 // console.log(
 //   obj.1,
 //   obj.ab-cd,
