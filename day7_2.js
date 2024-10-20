@@ -189,5 +189,5 @@ console.log(
         .join(', ')//그것들을 연결 , 로 구분 
       );
 }
-
-//reduce
+//7:07:02부터
+//reduce 
