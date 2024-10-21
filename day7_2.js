@@ -191,3 +191,37 @@ console.log(
 }
 
 //reduce 
+//콜백함수 - 인자 (이전값,현재값, 현재 인덱스, 해당 배열)
+
+{
+//초기 값이 없는 경우
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(
+  arr.reduce((prev, curr, idx) => {//순회 누적
+    console.log(`p: ${prev}, c: ${curr}, i: ${idx}`);
+    return prev + curr; //45
+  })
+);
+}
+
+{
+//초기값이 있을때
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(
+  arr.reduce((prev, curr, idx) => {
+    console.log(`p: ${prev}, c: ${curr}, i: ${idx}`);
+    return prev + curr;
+  }, 10)//10 - 11 - 13 ...55 초깃값 에다 인덱스 0번부터 더하면서 합산
+);
+}
+
+{
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  console.log((prev,curr,idx)=>{
+    return prev*curr;
+  });
+}
+
