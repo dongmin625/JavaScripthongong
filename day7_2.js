@@ -224,4 +224,99 @@ console.log(
     return prev*curr;
   });
 }
+//reduce,reduceRight(순서 방향 차이)
 
+console.log(//실전에서는 이러한 형태를 자주씀
+  arr.reduceRight((prev,curr)=>{
+    
+    return prev + curr;
+  })
+);
+
+{
+  const arr = [
+    { name: '사과', cat: '과일', price: 3000 },
+    { name: '오이', cat: '채소', price: 1500 },
+    { name: '당근', cat: '채소', price: 2000 },
+    { name: '살구', cat: '과일', price: 2500 },
+    { name: '피망', cat: '채소', price: 3500 },
+    { name: '딸기', cat: '과일', price: 5000 }
+  ];
+  
+  ['과일', '채소'].forEach(category => {//forEach로 순환
+    console.log(
+      `${category}의 가격의 합:`,
+      arr
+      .filter(({cat}) => cat === category)//카테고리별로 필터
+      .map(({price}) => price)//가격을 가져와 배열을 만듬
+      .reduce((prev, curr) => prev + curr)//더한다
+    );
+  });
+}
+
+//sort는 원본배열을 수정함'
+//기본 오름차순
+
+let randomWord = 'DBKGICAHFEJ';//문자열은 수정되지 않음
+
+console.log(
+  randomWord
+  .split('')//배열이됨
+  .sort()//정렬
+  // .reverse()
+  .join('')//문자열이 됨
+);
+
+console.log(randomWord);
+
+{
+  // ⚠️ 숫자일 시 문제가 생김 (사전순 즉 문자열순 정렬)
+  //숫자를 문자열로 암묵적으로 변환하여 오름차순 정렬
+const arr = [1, 2, 30, 400, 10, 100, 1000];
+console.log(arr.sort());
+}
+
+// NaN을 반환하므로 콜백에 사용 불가
+console.log('A' - 'B');
+
+{
+  const arr = [
+    { name: '사과', cat: '과일', price: 3000 },
+    { name: '오이', cat: '채소', price: 1500 },
+    { name: '당근', cat: '채소', price: 2000 },
+    { name: '살구', cat: '과일', price: 2500 },
+    { name: '피망', cat: '채소', price: 3500 },
+    { name: '딸기', cat: '과일', price: 5000 }
+  ];
+  
+  console.log(
+    arr
+    .sort((a, b) => {
+      if (a.cat !== b.cat) {
+        return a.cat > b.cat ? 1 : -1;
+      }
+      return a.price > b.price ? 1 : -1;
+    })
+    .map(({name, cat, price}, idx) => {
+      return `${idx + 1}: [${cat[0]}] ${name}: ${price}원`
+    })
+    .join('\n - - - - - - - - - \n')
+  );
+}
+
+//flatMap 잘안씀
+//map 한다음 flat한 효과 
+//flatMap은 한단계만 펼칠수 있음
+{
+  const arr = [1, 2, 3, 4, 5];
+
+console.log(
+  arr.flatMap(i => i)
+);
+}
+
+{
+  console.log(
+    arr.flatMap(i => [i * 10, i * 100, i * 1000])
+  );
+}
